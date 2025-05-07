@@ -1,3 +1,13 @@
+require "catppuccin".setup {
+	flavour = "mocha",
+	term_colors = true,
+	integrations = {
+		cmp = true,
+		nvimtree = true,
+		treesitter = true
+	}
+}
+
 require "cmp".setup {
 	sources = {
 		name = { "nvim_lsp" }
