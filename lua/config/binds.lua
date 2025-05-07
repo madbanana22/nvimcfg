@@ -19,3 +19,13 @@ map('t', '<C-h>', [[<Cmd>wincmd h<CR>]])
 map('t', '<C-j>', [[<Cmd>wincmd j<CR>]])
 map('t', '<C-k>', [[<Cmd>wincmd k<CR>]])
 map('t', '<C-l>', [[<Cmd>wincmd l<CR>]])
+
+map("n", "<C-h>", "<C-w>h", { desc = "Focus Left" })
+map("n", "<C-j>", "<C-w>j", { desc = "Focus Down" })
+map("n", "<C-k>", "<C-w>k", { desc = "Focus Up" })
+map("n", "<C-l>", "<C-w>l", { desc = "Focus Right" })
+
+map("n", "<C-A-H>", "<C-w>H", { desc = "Move Window Left" })
+map("n", "<C-A-J>", "<C-w>J", { desc = "Move Window Down" })
+map("n", "<C-A-K>", "<C-w>K", { desc = "Move Window Up" })
+map("n", "<C-A-L>", "<C-w>L", { desc = "Move Window Right" })
