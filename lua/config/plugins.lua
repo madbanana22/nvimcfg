@@ -41,6 +41,15 @@ return {
 	{
 		"onsails/lspkind.nvim"
 	},
+	{
+		"mfussenegger/nvim-dap",
+		event = "VeryLazy",
+		dependencies = {
+			"rcarriga/nvim-dap-ui",
+			"nvim-neotest/nvim-nio",
+			"theHamsta/nvim-dap-virtual-text",
+		},
+	},
 	require("config.plugins.trouble"),
 	require("config.plugins.whichkey"),
 	require("config.plugins.cmp")

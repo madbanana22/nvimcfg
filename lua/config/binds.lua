@@ -29,3 +29,18 @@ map("n", "<C-A-H>", "<C-w>H", { desc = "Move Window Left" })
 map("n", "<C-A-J>", "<C-w>J", { desc = "Move Window Down" })
 map("n", "<C-A-K>", "<C-w>K", { desc = "Move Window Up" })
 map("n", "<C-A-L>", "<C-w>L", { desc = "Move Window Right" })
+
+local dap = require "dap"
+local dapui = require "dapui"
+local dap_vtxt = require "nvim-dap-virtual-text"
+
+map("n", "<leader>dt", function() dap.toggle_breakpoint() end, { desc = "Toggle Breakpoint" })
+map("n", "<leader>dc", function() dap.continue() end, { desc = "Continue" })
+map("n", "<leader>di", function() dap.step_into() end, { desc = "Step Into" })
+map("n", "<leader>do", function() dap.step_over() end, { desc = "Step Over" })
+map("n", "<leader>du", function() dap.step_out() end, { desc = "Step Out" })
+map("n", "<leader>dr", function() dap.repl.open() end, { desc = "Open REPL" })
+map("n", "<leader>dl", function() dap.run_last() end, { desc = "Run last" })
+map("n", "<leader>dq", function() dap.terminate() dapui.close() dap_vtxt.toggle() end, { desc = "Terminate" })
+map("n", "<leader>db", function() dap.list_breakpoints() end, { desc = "List Breakpoints" })
+map("n", "<leader>de", function() dap.set_exception_breakpoints({"all"}) end, { desc = "Set Exception Breakpoints" })

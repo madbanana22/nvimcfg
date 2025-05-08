@@ -107,3 +107,44 @@ vim.keymap.set('n', '<leader>n', function()
 		nvtree_api.tree.open()
   end
 end, { desc = 'Nvimtree: toggle' })
+
+local dap = require "dap"
+local dapui = require "dapui"
+local dap_vtxt = require "nvim-dap-virtual-text"
+
+dap_vtxt.setup()
+
+dap.configurations = {
+	haxe = {
+		{
+			name = "Launch .hl",
+			type = "hl",
+			request = "launch",
+			program = function()
+				return vim.fn.input("Path to hl: ", vim.fn.getcwd() .. "/", "file") or vim.fn.getcwd().."/export/hl/obj/ApplicationMain.hl"
+			end,
+			cwd = "${workspaceFolder}",
+			stopAtEntry = false,
+			MIMode = "lldb"
+		}
+	}
+}
+
+dapui.setup()
+
+vim.fn.sign_define("DapBreakpoint", { text = "" })
+vim.fn.sign_define("DapBreakpointCondition", { text = "" })
+vim.fn.sign_define("DapBreakpointRejected", { text = "" })
+
+dap.listeners.before.attach.dapui_config = function()
+	dapui.open()
+end
+dap.listeners.before.launch.dapui_config = function()
+	dapui.open()
+end
+dap.listeners.before.event_terminated.dapui_config = function()
+	dapui.close()
+end
+dap.listeners.before.event_exited.dapui_config = function()
+	dapui.close()
+end

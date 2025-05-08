@@ -21,6 +21,14 @@ vim.lsp.config["haxe"] = {
 	cmd = { "node", "/home/madbanana22/dev/haxe/haxe-language-server/bin/haxels.js" },
 	filetypes = { "haxe", "hxml" },
 	root_markers = { "Project.xml", "hxformat.json", "*.hxml", "haxelib.json" },
-	capabilities = capabilities
+	capabilities = capabilities,
+	init_options = {
+		displayArguments = { "build.hxml" }
+	},
+	settings = {
+		haxe = {
+			buildCompletionCache = true
+		}
+	}
 }
 vim.lsp.enable("haxe")
