@@ -26,13 +26,6 @@ return {
 		"vim-airline/vim-airline"
 	},
 	{
-		"hrsh7th/cmp-nvim-lsp",
-		priority = 1
-	},
-	{
-		"hrsh7th/nvim-cmp"
-	},
-	{
 		"nvim-tree/nvim-tree.lua",
 		opts = {}
 	},
@@ -45,6 +38,10 @@ return {
 	{
 		"akinsho/toggleterm.nvim", config = true
 	},
+	{
+		"onsails/lspkind.nvim"
+	},
 	require("config.plugins.trouble"),
-	require("config.plugins.whichkey")
+	require("config.plugins.whichkey"),
+	require("config.plugins.cmp")
 }
